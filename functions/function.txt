@@ -1,0 +1,2 @@
+function: its a block of code which contains a specific code to perform specific task
+a function is a reusable block of code write it once call it many times like a recipe write it once cook many times 
