@@ -97,21 +97,21 @@ const student = (name2, marks2) => {
 
 console.log(student('sagar', 34))
 
+// Generator Function
+
+function* numbers() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const gen = numbers();
+console.log(gen.next().value);
+console.log(gen.next().value); 
+
 //higher oredr function 
 //when a function accepts another function as a parameter then that accepting function is called asa 
 //higher oreder function 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -135,6 +135,11 @@ console.log(calcu(5,6,adding))
 
 
 
+// Recursive Function
+function count(k) {
+  if (k === 0) return;
+  console.log(k);
+  count(k - 1);
+}
 
-
-let ip1=prompt("enter a ip1 value")
+count(3);
