@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arialf;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        #happy {
+            background: yellow;
+            color: black;
+        }
+
+        #sad {
+            background: blue;
+        }
+
+        #angry {
+            background: red;
+        }
+
+        #relaxed {
+            background: green;
+        }
+
+        #display {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <h1>Choose Your Mind</h1>
+    <button id="happy">Happy</button>
+    <button id="sad">Sad</button>
+    <button id="angry">Angry</button>
+    <button id="relaxed">Relaxed</button>
+
+    <p id="display"></p>
+
+    <script>
+        let bodybg = document.getElementById("body")
+        let happy = document.getElementById("happy")
+        let sad = document.getElementById("sad")
+        let angry = document.getElementById("angry")
+        let relaxed = document.getElementById("relaxed")
+        let display = document.getElementById("display")
+
+
+        happy.addEventListener("click", () => {
+            bodybg.style.background = "yellow"
+            display.innerHTML = "Yay! Keep smiling 😊"
+
+        })
+        sad.addEventListener("click", () => {
+            bodybg.style.background = "blue"
+            display.innerHTML = "It's okay to feel sad sometimes.., come back soon 😢"
+
+        })
+        angry.addEventListener("click", () => {
+            bodybg.style.background = "red"
+            display.innerHTML = "Calm down, don't be angry 😡"
+
+        })
+        relaxed.addEventListener("click", () => {
+            bodybg.style.background = "green"
+            display.innerHTML = "Stay calm and relaxed 🧘‍♀️"
+
+        })
+    </script>
+
+
+</body>
+
+
+</html>

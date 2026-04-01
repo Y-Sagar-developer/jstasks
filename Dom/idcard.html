@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID CARD</title>
+    <style>
+        #college_name {
+            display: inline-block;
+            margin-top: -10px;
+            margin-left: 50px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ID CARD</h1>
+    <div id="container">
+        <img id="svj" />
+        <h2 id="college_name">SVJ DEGREE COLLEGE</h2>
+        <div>
+            <img id="myphoto" />
+            <h3 id="name">YARRA</h3>
+        </div>
+        <div id="bio">
+            <p id="b1">
+                ADM NO
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+            <p id="b2">
+                CLASS&SEC
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+            <p id="b3">
+                D.O.B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+            <p id="b4">
+                FATHER'S
+                NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+            <p id="b5">
+                PHONE
+                NO.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+            <p id="b6">
+                BLOOD
+                GROUP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let container = document.getElementById("container");
+        container.style.border = "1px solid black";
+        container.style.height = "480px";
+        container.style.width = "380px";
+        container.style.marginLeft = "auto";
+        container.style.marginRight = "auto";
+        container.style.background = "url(./background.jpg)";
+        container.style.backgroundSize = "cover"
+        container.style.backgroundPosition = "center"
+
+        let img1 = document.getElementById("svj");
+        img1.setAttribute("src", "SVJ1.png");
+        img1.setAttribute("height", "100px");
+        img1.style.paddingLeft = "140px";
+
+        //college name
+        //let collegename = document.getElementsByClassName("college_name");
+        //   collegename.style.color="red"
+
+        //myphoto
+        let photo = document.getElementById("myphoto");
+        photo.setAttribute("src", "./photo.jpg");
+        photo.setAttribute("height", "90px");
+        photo.style.marginLeft = "150px";
+        photo.style.marginTop = "-10px";
+        photo.style.border = "2px solid white ";
+
+        //name
+        let myname = document.getElementById("name");
+        myname.innerHTML += " SAGAR";
+        myname.style.marginLeft = "115px";
+        myname.style.marginTop = "0px";
+
+        //bio
+        var data = document.getElementById("bio");
+        data.style.marginLeft = "20px";
+
+        var adm = document.getElementById("b1");
+        adm.innerHTML += "#9550";
+        var sec = document.getElementById("b2");
+        sec.innerHTML += " XI";
+        var dob = document.getElementById("b3");
+        dob.innerHTML += "29/07/2001";
+        var father = document.getElementById("b4");
+        father.innerHTML += "Umapathi";
+        var phone = document.getElementById("b5");
+        phone.innerHTML += "93739276497";
+        var blood = document.getElementById("b6");
+        blood.innerHTML += "NA";
+    </script>
+</body>
+
+</html>

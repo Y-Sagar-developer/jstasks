@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mood</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        #happy {
+            background: yellow;
+            color: black;
+        }
+
+        #sad {
+            background: blue;
+        }
+
+        #angry {
+            background: red;
+        }
+
+        #relaxed {
+            background: green;
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <h1>Choose Your Mood</h1>
+
+    <button id="happy">Happy</button>
+    <button id="sad">Sad</button>
+    <button id="angry">Angry</button>
+    <button id="relaxed">Relaxed</button>
+
+    <p id="display"></p>
+
+    <script>
+        const data = {
+            happy: ["yellow", "Yay! Keep smiling 😊"],
+            sad: ["blue", "It's okay to feel sad sometimes.. 😢"],
+            angry: ["red", "Calm down, don't be angry 😡"],
+            relaxed: ["green", "Stay calm and relaxed 🧘‍♀️"]
+        };
+
+        const body = document.getElementById("body");
+        const display = document.getElementById("display");
+
+        document.querySelectorAll("button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                console.log(btn.id)
+                let mood = btn.id;
+                console.log(mood)
+                console.log(data[mood])
+                console.log(data[mood][0])
+                body.style.background = data[mood][0];
+                display.innerHTML = data[mood][1];
+            });
+        });
+    </script>
+
+</body>
+
+</html>
