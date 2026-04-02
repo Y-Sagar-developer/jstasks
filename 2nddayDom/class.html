@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Marks</h2>
+
+<p class="mark">120</p>
+<p class="mark">2</p>
+<p class="mark">3</p>
+<p class="mark">40</p>
+
+<button onclick="showTotal()">Show Total</button>
+<button onclick="showHighest()">Show Highest</button>
+<button onclick="showLowest()">Show Lowest</button>
+<button onclick="resetAll()">Reset All</button>
+
+<p id="result"></p>
+
+<script>
+    const marks = document.getElementsByClassName('mark');
+    const result = document.getElementById('result');
+
+    // Show Total
+    function showTotal() {
+        let total = 0;
+        for (let i = 0; i < marks.length; i++) {
+            total = total + Number(marks[i].textContent);
+        }
+        result.textContent = "Total Marks: " + total;
+    }
+
+    // Show Highest
+    function showHighest() {
+        let highest = Number(marks[0].textContent);
+
+        for (let i = 1; i < marks.length; i++) {
+            let num = Number(marks[i].textContent);
+            if (num > highest) {
+                highest = num;
+            }
+        }
+
+        result.textContent = "Highest Marks: " + highest;
+    }
+
+    // Show Lowest
+    function showLowest() {
+        let lowest = Number(marks[0].textContent);
+
+        for (let i = 1; i < marks.length; i++) {
+            let num = Number(marks[i].textContent);
+            if (num < lowest) {
+                lowest = num;
+            }
+        }
+
+        result.textContent = "Lowest Marks: " + lowest;
+    }
+
+    // Reset All
+    // function resetAll() {
+       // marks[0].textContent = 120;
+        //marks[1].textContent = 2;
+        //marks[2].textContent = 3;
+        //marks[3].textContent = 40;
+
+    //    result.textContent = ""
+    
+
+
+    function resetAll() {
+    const defaultValues = [120, 2, 3, 40];
+
+    for (let i = 0; i < marks.length; i++) {
+        marks[i].textContent = defaultValues[i];
+    }
+
+    result.textContent = "";
+}
+</script>
+
+</body>
+</html>

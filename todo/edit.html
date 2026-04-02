@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="frm1" onsubmit="hello(event)">
+      <input type="text" id="ip1" />
+      <input type="submit" value="add todo" />
+    </form>
+    <ul id="list"></ul>
+
+    <script>
+      let frm1 = document.getElementById("frm1");
+      let ip1 = document.getElementById("ip1");
+      let list = document.getElementById("list");
+
+      frm1.addEventListener("submit", (params) => {
+        params.preventDefault();
+        let listItems = document.createElement("li");
+        listItems.innerHTML = ip1.value;
+
+        let btn = document.createElement("button");
+        btn.innerHTML = "X";
+        btn.addEventListener("click", () => {
+          let conf = window.confirm("are you sure");
+          if (conf) {
+            list.removeChild(listItems);
+          }
+        });
+
+        listItems.appendChild(btn);
+        list.appendChild(listItems);
+        ip1.value = "";
+      });
+    </script>
+  </body>
+</html>

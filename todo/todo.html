@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 120px;
+
+        }
+
+        #ip1 {
+            flex: 1;
+            padding: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        #frm1 input[type="submit"] {
+            padding: 6px;
+
+        }
+
+        #list {
+            padding: 0;
+            max-width: 286px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #list li {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>TODO-LIST</h1>
+        <form action="" id="frm1">
+            <input type="text" id="ip1">
+            <input type="submit" value="add value">
+        </form>
+
+        <ul id="list"></ul>
+    </div>
+
+
+
+    <script>
+        let frm1 = document.getElementById("frm1")
+        let ip1 = document.getElementById("ip1")
+        let list = document.getElementById("list")
+
+
+
+        frm1.addEventListener("submit", (e) => {
+            e.preventDefault()
+            // console.dir(ip1)
+            //console.log(ip1.value)
+
+            if (ip1.value.trim() === "") {
+                alert("please enter a todo");
+                return
+            }
+
+            let listItems = document.createElement("li")
+            listItems.innerHTML = ip1.value
+
+
+            let btn = document.createElement("button")
+            btn.innerHTML = "X"
+            btn.addEventListener("click", () => {
+                let confirmation = window.confirm("are you sure")
+                if (confirmation) {
+                    list.removeChild(listItems)
+                }
+            })
+
+
+
+
+            listItems.appendChild(btn)
+            list.appendChild(listItems)
+            ip1.value = ""
+
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>
