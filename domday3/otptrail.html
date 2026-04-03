@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>otp generate</title>
+    <style>
+      #main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+        border-radius: 30px;
+      }
+      button {
+        border-radius: 40px;
+        padding: 10px;
+      }
+
+      #p1 {
+        margin-top: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <button id="otp" onclick="otpgenerete(),bgcolor()">Generate OTP</button>
+      <h1 id="p1"></h1>
+    </div>
+
+    <script>
+      let otp = document.getElementById("otp");
+      let p1 = document.getElementById("p1");
+
+      function otpgenerete() {
+        let otp = Math.floor(100000 + Math.random() * 900000);
+        p1.innerHTML = `DO NOT SHARE YOUR OTP: ${otp}`;
+      }
+
+      function color() {
+        let colorvalues = "0123456789ABCDEF";
+        let str = "#";
+        for (i = 0; i < 6; i++) {
+          str += colorvalues[Math.floor(Math.random() * colorvalues.length)];
+        }
+        return str;
+      }
+      function bgcolor() {
+        document.body.style.backgroundColor = color();
+      }
+    </script>
+  </body>
+</html>

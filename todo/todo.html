@@ -56,29 +56,22 @@
 
         <ul id="list"></ul>
     </div>
-
-
-
+    
     <script>
         let frm1 = document.getElementById("frm1")
         let ip1 = document.getElementById("ip1")
         let list = document.getElementById("list")
 
-
-
         frm1.addEventListener("submit", (e) => {
             e.preventDefault()
             // console.dir(ip1)
             //console.log(ip1.value)
-
             if (ip1.value.trim() === "") {
                 alert("please enter a todo");
                 return
             }
-
             let listItems = document.createElement("li")
             listItems.innerHTML = ip1.value
-
 
             let btn = document.createElement("button")
             btn.innerHTML = "X"
@@ -89,18 +82,9 @@
                 }
             })
 
-
-
-
             listItems.appendChild(btn)
             list.appendChild(listItems)
             ip1.value = ""
-
-
-
-
-
-
         })
     </script>
 </body>

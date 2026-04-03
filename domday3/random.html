@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Random Color Generator</title>
+
+    <style>
+        .main {
+            margin: 100px auto;
+            width: 300px;
+            padding: 20px;
+            border: 2px solid black;
+            background-color: azure;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <h2>Random Color Generator</h2>
+
+        <div class="container">
+            <div class="box red" onclick="clr('red')"></div>
+            <div class="box blue" onclick="clr('blue')"></div>
+            <div class="box green" onclick="clr('green')"></div>
+            <div class="box orange" onclick="clr('orange')"></div>
+        </div>
+    </div>
+
+    <script>
+        function clr(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        /* const boxes = document.querySelectorAll('.box');
+ 
+         boxes.forEach(box => {
+             box.addEventListener('click', function () {
+                 const color = document.body.style.backgroundColor;
+ 
+             });
+         });*/
+
+    </script>
+
+</body>
+
+</html>

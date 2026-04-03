@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="main">
+        <button id="otp" onclick="otpgenerete()">Generate OTP</button>
+        <h1 id="p1"></h1>
+    </div>
+</body>
+
+<script>
+    let p1 = document.getElementById("p1");
+    let count = 1;
+
+    function otpgenerete() {
+         let otp = "";
+ 
+         for (let i = 0; i < 6; i++) {
+             otp += (count + i) % 10
+         }
+ 
+         count++;
+ 
+         p1.innerHTML = otp;
+     }
+
+    function otpgenerete() {
+        let otp = Math.floor(100000 + Math.random() * 900000);
+        p1.innerHTML = `DO NOT SHARE YOUR OTP: ${otp}`;
+    }
+</script>
+
+
+</html>
