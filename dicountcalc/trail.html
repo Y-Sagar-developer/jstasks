@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Discount</title>
+</head>
+<body>
+
+    <h2>Select Product</h2>
+
+    <!-- Product Dropdown -->
+    <select id="product">
+        <option value="">--Select--</option>
+        <option value="500">Mouse - $500</option>
+        <option value="1000">Keyboard - $1000</option>
+        <option value="50000">Laptop - $50000</option>
+    </select>
+
+    <br><br>
+
+    <!-- Discount Input -->
+    <label>Enter Discount (%): </label>
+    <input type="number" id="discount" placeholder="Enter discount">
+
+    <br><br>
+
+    <!-- Button -->
+    <button onclick="calculate()">Calculate</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculate() {
+            let price = document.getElementById("product").value;
+            let discount = document.getElementById("discount").value;
+
+            if (price === "" || discount === "") {
+                document.getElementById("result").innerHTML = "Please select product and enter discount";
+                return;
+            }
+
+            let discountAmount = (price * discount) / 100;
+            let finalPrice = price - discountAmount;
+
+            document.getElementById("result").innerHTML =
+                "Final Price: $" + finalPrice;
+        }
+    </script>
+
+</body>
+</html>
