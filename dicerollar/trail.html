@@ -1,0 +1,126 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Roller</title>
+
+  <style>
+    body {
+      text-align: center;
+      background: yellow;
+      font-family: Arial;
+      margin-top: 100px;
+      transition: 0.5s; /* smooth color change */
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>🎲 Dice Roller Simulator 🎲</h2>
+
+<button onclick="rollDice()">Roll Dice</button>
+
+<h3 id="result"></h3>
+
+<script>
+function rollDice() {
+
+  // random number (1 to 6)
+  let randomNumber = Math.floor(Math.random() * 6) + 1;
+
+  // dice emojis
+  let dice = ["⚀","⚁","⚂","⚃","⚄","⚅"];
+
+  // random colors
+  let colors = ["red","blue","green","purple","orange","pink","black","teal"];
+
+  // pick random color
+  let randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+  // change body background
+  document.body.style.backgroundColor = randomColor;
+
+  // display result
+  document.getElementById("result").innerText =
+    "You rolled: " + randomNumber + " " + dice[randomNumber - 1];
+}
+</script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Roller</title>
+
+  <style>
+    body {
+      text-align: center;
+      background: yellow;
+      font-family: Arial;
+      margin-top: 100px;
+      transition: 0.5s;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>🎲 Dice Roller Simulator 🎲</h2>
+
+<button onclick="rollDice()">Roll Dice</button>
+
+<h3 id="result"></h3>
+
+<script>
+function rollDice() {
+
+  // dice number
+  let randomNumber = Math.floor(Math.random() * 6) + 1;
+
+  // dice emojis
+  let dice = ["⚀","⚁","⚂","⚃","⚄","⚅"];
+
+  // 🔥 random RGB color
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+
+  let randomColor = "rgb(" + r + "," + g + "," + b + ")";
+
+  // apply background
+  document.body.style.backgroundColor = randomColor;
+
+  // show result
+  document.getElementById("result").innerText =
+    "You rolled: " + randomNumber + " " + dice[randomNumber - 1];
+}
+</script>
+
+</body>
+</html>

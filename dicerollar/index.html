@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2> Dies Roller Simulator</h2>
+    <button onclick="roller()">roll dies</button>
+    <h3 id="result"></h3>
+
+
+    <script>
+        function roller() {
+
+            let randomNum = Math.floor(Math.random() * 6) + 1;
+            let diesEmojis = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+
+
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+
+            let randomColor = "rgb(" + r + "," + g + "," + b + ")";
+
+            document.body.style.backgroundColor = randomColor;
+
+            let result = document.getElementById("result")
+            result.innerHTML = ` ${randomNum} ${diesEmojis[randomNum - 1]}`
+        }
+
+    </script>
+
+</body>
+
+</html>
