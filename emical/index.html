@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: aqua;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: blueviolet;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        h3 {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <h2>Bank loan emi calculator</h2>
+        <input type="number" id="amount" placeholder="loan amount">
+        <input type="number" id="rate" placeholder="intrest rate">
+        <input type="number" id="months" placeholder="tenure">
+
+        <button onclick="calemi()">calculate EMI</button>
+
+
+        <h3 id="result"></h3>
+
+    </div>
+    <script>
+        function calemi() {
+            let amount_p = document.getElementById("amount").value;
+            let rate_r = document.getElementById("rate").value / 12 / 100
+            let months_n = document.getElementById("months").value
+
+            if (amount_p === "" || rate_r === "" || months_n === "") {
+                alert("please fill all fields")
+                return
+            }
+
+            let emicalculate = (amount_p * rate_r * Math.pow(1 + rate_r, months_n)) / (Math.pow(1 + rate_r, months_n) - 1)
+            document.getElementById("result").innerHTML = emicalculate.toFixed(2)
+        }
+    </script>
+</body>
+
+</html>

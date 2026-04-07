@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EMI Calculator</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #8fbcd4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 10px;
+      width: 100%;
+      background: #2d6c91;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    h3 {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Bank Loan EMI Calculator</h2>
+
+  <input type="number" id="amount" placeholder="Loan Amount">
+  <input type="number" id="rate" placeholder="Interest Rate (%)">
+  <input type="number" id="months" placeholder="Tenure (months)">
+
+  <button onclick="calculateEMI()">Calculate EMI</button>
+
+  <h3 id="result"></h3>
+</div>
+
+<script>
+function calculateEMI() {
+  let P = document.getElementById("amount").value;
+  let R = document.getElementById("rate").value / 12 / 100;
+  let N = document.getElementById("months").value;
+
+  if (P === "" || R === "" || N === "") {
+    alert("Please fill all fields");
+    return;
+  }
+
+  let EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+
+  document.getElementById("result").innerText =
+    "Monthly EMI: " + EMI.toFixed(2);
+}
+</script>
+
+</body>
+</html>
