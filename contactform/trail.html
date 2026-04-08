@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #424141;
+            margin: 0;
+        }
+
+        .main {
+            display: flex;
+            width: 70%;
+            background: white;
+            margin: 40px auto;
+            padding: 25px;
+                        border-radius: 5px;
+
+        }
+
+        .leftSide {
+            width: 25%;
+            border-right: 1px solid #ccc;
+        }
+
+        .rightSide {
+            width: 65%;
+            padding-left: 26px;
+        }
+
+        .firstRow {
+            display: flex;
+            gap: 20px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 9px;
+            margin-top: 15px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+        }
+
+        .checkbox {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 13px;
+            align-items: center;
+        }
+
+        .checkbox input {
+            width: auto;
+        }
+
+        .captcha {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 200px;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            background: rgb(126, 27, 240);
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main">
+    <div class="leftSide">
+        <h1>Contact Us</h1>
+        <p>Let us know how we can help</p>
+    </div>
+
+    <div class="rightSide">
+        <form onsubmit="return handleSubmit()">
+
+            <div class="firstRow">
+                <div>
+                    <input type="text" id="name" placeholder="Name" oninput="clearError('nameErr')">
+                    <div class="error" id="nameErr"></div>
+                </div>
+
+                <div>
+                    <input type="text" id="email" placeholder="Email" oninput="validateEmail()">
+                    <div class="error" id="emailErr"></div>
+                </div>
+            </div>
+
+            <select id="inquiry" onchange="clearError('typeErr')">
+                <option value="">Type of Inquiry</option>
+                <option>Support</option>
+                <option>General</option>
+            </select>
+            <div class="error" id="typeErr"></div>
+
+            <input type="text" id="company" placeholder="Company">
+
+            <select id="country">
+                <option>India</option>
+                <option>USA</option>
+            </select>
+
+            <textarea id="message" placeholder="Your Message" oninput="clearError('msgErr')"></textarea>
+            <div class="error" id="msgErr"></div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="agree" onchange="clearError('checkErr')">
+                <label for="agree">
+                    By submitting this form, I understand that my data will be processed.
+                </label>
+            </div>
+            <div class="error" id="checkErr"></div>
+
+            <div class="captcha">
+                ⬜ I'm not a robot
+            </div>
+
+            <button class="submit-btn">SUBMIT</button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+
+function clearError(id){
+    document.getElementById(id).innerText = "";
+}
+
+function validateEmail(){
+    let email = document.getElementById("email").value;
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(email.match(pattern)){
+        document.getElementById("emailErr").innerText = "";
+    }
+}
+
+function handleSubmit(){
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let inquiry = document.getElementById("inquiry").value;
+    let message = document.getElementById("message").value.trim();
+    let agree = document.getElementById("agree").checked;
+
+    let isValid = true;
+
+    if(name === ""){
+        document.getElementById("nameErr").innerText = "Name required";
+        isValid = false;
+    }
+
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if(email === ""){
+        document.getElementById("emailErr").innerText = "Email required";
+        isValid = false;
+    } else if(!email.match(pattern)){
+        document.getElementById("emailErr").innerText = "Invalid email";
+        isValid = false;
+    }
+
+
+    if(inquiry === ""){
+        document.getElementById("typeErr").innerText = "Select inquiry";
+        isValid = false;
+    }
+
+    if(message === ""){
+        document.getElementById("msgErr").innerText = "Message required";
+        isValid = false;
+    }
+
+  
+    if(!agree){
+        document.getElementById("checkErr").innerText = "You must agree";
+        isValid = false;
+    }
+
+    if(!isValid){
+        return false;
+    }
+
+    alert("Form submitted successfully");
+
+    return true;
+}
+
+</script>
+
+</body>
+</html>
