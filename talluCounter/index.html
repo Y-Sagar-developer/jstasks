@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #858080;
+        }
+
+        .main {
+            background: #f3f3f3;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        h4 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #count {
+            font-size: 60px;
+            color: green;
+            margin: 20px 0;
+        }
+
+        input {
+            padding: 8px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .btns {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 15px;
+
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <h4>TALLY COUNTER</h4>
+        <input type="number" id="start" placeholder="Enter Strting value">
+        <button onclick="setStart()">Set Start</button>
+
+        <div id="count">0</div>
+
+        <div class="btns">
+            <button onclick="decrease()">- Minus</button>
+            <button onclick="increase()">+ Plus</button>
+        </div>
+
+        <button id="" onclick="reset()">Reset</button>
+
+    </div>
+
+    <script>
+        let count = 0
+        let displayresult = document.getElementById("count")
+
+        function setStart() {
+            let val = document.getElementById("start").value;
+            if (val == "") {
+                alert("Enter Number First")
+                return
+            }
+            count = Number(val)
+            displayresult.innerHTML = count
+        }
+
+        function increase() {
+            count++;
+            displayresult.innerHTML = count;
+        }
+
+        function decrease() {
+            if (count > 0) {
+                count--;
+                displayresult.innerHTML = count;
+            }
+        }
+
+        function reset() {
+            count = 0;
+            displayresult.innerHTML = count;
+        }
+
+    </script>
+
+</body>
+
+</html>
